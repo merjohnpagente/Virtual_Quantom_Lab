@@ -18,10 +18,10 @@
       <a href="#" class="active" data-view="home">Home</a>
       <a href="#" data-view="materials">Learn Physics</a>
       <a href="#" data-view="quizzes">Quizzes</a>
+      <a href="#" data-view="progress">My Progress</a>
     </nav>
     <div class="header-actions">
       <button class="icon-button" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
-      <button class="download-btn" data-view="materials">Explore <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h12M10 4l6 6-6 6"/></svg></button>
       <button class="icon-button menu-toggle" id="menuToggle" aria-label="Open navigation"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
@@ -32,7 +32,7 @@
       <div class="hero-copy">
         <div class="eyebrow-pill"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4"/></svg> Explore <span class="dot"></span> Learn <span class="dot"></span> Discover</div>
         <h1>Virtual <span class="gradient-text">Quantum Lab</span></h1>
-        <p>Explore fundamental physics concepts with interactive learning materials and simple quizzes designed to make science easier to understand.</p>
+        <p>Short physics lessons and quick quizzes that make science easier to understand.</p>
         <div class="hero-actions"><button class="btn btn-primary" data-view="materials">Start Exploring <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h13M10 4l6 6-6 6"/></svg></button><button class="btn btn-outline" data-view="quizzes">Take a Quiz</button></div>
       </div>
       <div class="hero-art" aria-label="Abstract atom illustration">
@@ -45,19 +45,22 @@
         <div class="float-label label-two"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.7 7.5 4.5 7.5-4.5M12 12.2V21"/></svg> Physics made clearer</div>
       </div>
     </div>
-    <section class="features">
-      <div class="features-intro"><div class="section-kicker">Our learning materials</div><h2>Everything You Need to Explore Physics</h2><p>Study concepts at your own pace, review important formulas, and check your understanding with optional quizzes.</p></div>
-      <div class="feature-grid" id="homeFeatureGrid"></div>
-    </section>
-    <section class="bottom-band">
-      <div class="band-item"><div class="band-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 6h13M8 10h8M8 13h6"/></svg></div><div><h3>Learn at Your Own Pace</h3><p>Read the learning materials whenever you want. Taking a quiz is optional.</p><button class="text-link" data-view="materials">Browse Materials <span>→</span></button></div></div>
-      <div class="band-item"><div class="band-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3h8M9 3v5l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17l-5-9V3"/><path d="M7 15h10"/></svg></div><div><h3>Ready to Test What You Know?</h3><p>Enter your name, answer the questions, and view your score and explanations.</p><button class="text-link" data-view="quizzes">Explore Quizzes <span>→</span></button></div></div>
+    <section class="steps">
+      <div class="section-kicker">How it works</div>
+      <h2>Learn in 3 simple steps</h2>
+      <p>Pick a topic, read the short lesson, then check yourself with a quick quiz.</p>
+      <div class="steps-grid">
+        <article class="step-card"><span class="step-num">01</span><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/><path d="M4 6h13M8 10h8M8 13h6"/></svg></div><h3>Pick a topic</h3><p>Choose from 6 physics topics — from motion to quantum ideas.</p><button class="text-link" data-view="materials">Browse materials <span>→</span></button></article>
+        <article class="step-card"><span class="step-num">02</span><div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4"/></svg></div><h3>Learn at your pace</h3><p>Read short lessons with key formulas and worked examples.</p></article>
+        <article class="step-card"><span class="step-num">03</span><div class="feature-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m13 2-9 12h7l-1 8 10-13h-7l0-7Z"/></svg></div><h3>Check yourself</h3><p>Take an optional quiz and see your score instantly.</p><button class="text-link" data-view="quizzes">Explore quizzes <span>→</span></button></article>
+      </div>
     </section>
   </section>
 
   <section class="view" id="materialsView">
     <div class="page-heading"><div class="section-kicker">Learn physics</div><h1>Learning Materials</h1><p>Explore core physics topics, review the key ideas, and learn one concept at a time.</p></div>
     <div class="material-toolbar"><div class="searchbox"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="materialSearch" type="search" placeholder="Search learning materials..." aria-label="Search learning materials"></div><button class="filter-btn" id="clearSearch">Clear search</button></div>
+    <div class="chip-row" id="materialChips"></div>
     <div class="materials-grid" id="materialsGrid"></div>
   </section>
 
@@ -67,7 +70,13 @@
 
   <section class="view" id="quizzesView">
     <div class="page-heading"><div class="section-kicker">Check your understanding</div><h1>Physics Quizzes</h1><p>Choose a topic to begin. You can leave at any time, and taking a quiz is completely optional.</p></div>
+    <div class="chip-row" id="quizChips"></div>
     <div class="quiz-list" id="quizGrid"></div>
+  </section>
+
+  <section class="view" id="progressView">
+    <div class="page-heading"><div class="section-kicker">Your progress</div><h1>My Progress</h1><p>Review your past quiz scores and best results per topic.</p></div>
+    <div id="progressContent"></div>
   </section>
 
   <section class="view" id="quizView">
@@ -79,6 +88,7 @@
   </section>
 </main>
 <footer><div class="container footer-inner"><a class="brand footer-brand" href="#" data-view="home"><svg class="brand-mark" viewBox="0 0 40 40" fill="none"><g stroke="currentColor" stroke-width="1.8"><ellipse cx="20" cy="20" rx="17" ry="6.8" transform="rotate(60 20 20)"/><ellipse cx="20" cy="20" rx="17" ry="6.8" transform="rotate(-60 20 20)"/><ellipse cx="20" cy="20" rx="17" ry="6.8"/></g><circle cx="20" cy="20" r="2.5" fill="currentColor"/></svg><span class="brand-name">Virtual <span>Quantum Lab</span></span></a><div class="footer-center"><span>Explore</span> • <span>Learn</span> • <span>Discover</span></div><div class="socials" aria-label="Footer links"><a href="#" data-view="materials" aria-label="Learning materials"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21V4.5Z"/><path d="M4 5h12M8 9h8M8 12h6"/></svg></a><a href="#" data-view="quizzes" aria-label="Quizzes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3h8M9 3v5l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17l-5-9V3"/><path d="M7 15h10"/></svg></a></div></div></footer>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><h3 id="modalTitle"></h3><p id="modalMessage"></p><div class="modal-actions"><button class="btn btn-outline" id="modalCancel">Cancel</button><button class="btn btn-primary" id="modalConfirm">Confirm</button></div></div></div>
 <div class="toast" id="toast" role="status"></div>
 <script src="script.js"></script>
 </body>
