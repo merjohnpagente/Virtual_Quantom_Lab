@@ -98,3 +98,46 @@ button:focus-visible,a:focus-visible,input:focus-visible,.chip:focus-visible{out
 [data-theme="dark"] .step-card{background:#15233a;border-color:#283952}
 [data-theme="dark"] .step-num{color:#3a4f75}
 @media(max-width:720px){.steps-grid{grid-template-columns:1fr}.steps h2{font-size:26px}}
+
+/* ---------- Reels feed (Learning Materials) ---------- */
+.reels-feed{max-height:660px;overflow-y:auto;overflow-x:hidden;max-width:400px;margin-inline:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:y proximity;display:flex;flex-direction:column;gap:14px;padding:6px;scrollbar-width:thin}
+.reel-card{position:relative;background:#000;color:#fff;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;border-radius:20px;overflow:hidden;height:600px;max-width:340px;width:100%;margin-inline:auto;scroll-snap-align:start;flex-shrink:0;box-shadow:0 12px 30px rgba(10,25,55,.20)}
+
+.reel-screen{position:absolute;inset:0;background:#000}
+.reel-screen video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.reel-screen video{touch-action:pan-y}
+.reel-play{position:absolute;inset:0;margin:auto;width:66px;height:66px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:grid;place-items:center;cursor:pointer;transition:opacity .2s;z-index:2}
+.reel-card.playing .reel-play{opacity:0;pointer-events:none}
+
+.reel-side{position:absolute;right:10px;top:36%;display:flex;flex-direction:column;gap:12px;z-index:4;transition:opacity .25s ease}
+.reel-icon{background:none;border:0;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;min-width:48px;min-height:48px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.reel-icon small{font-size:11px;font-weight:700}
+.reel-icon.liked{color:#ff6b8d}
+.reel-info{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.82));transition:opacity .25s ease,transform .25s ease}
+.reel-info h3{margin:0 0 4px;font-size:21px;letter-spacing:-.4px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.reel-info p{margin:0 0 10px;font-size:13.5px;font-weight:500;opacity:.92}
+.reel-formula{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 12px;font-weight:700;font-size:13px;margin-bottom:12px}
+.reel-quiz{width:100%}
+
+.reel-progress{position:absolute;left:0;right:0;bottom:0;z-index:5;height:16px;background:transparent;cursor:pointer}.reel-progress::before{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.25)}
+.reel-progress span{position:absolute;left:0;bottom:0;height:4px;width:0;background:linear-gradient(90deg,#398af6,#9b4fe8)}
+.reel-card.playing .reel-info{opacity:0;pointer-events:none;transform:translateY(12px)}
+.reel-card.playing .reel-side{opacity:0;pointer-events:none}
+.reel-time{font-size:11px;font-weight:600;opacity:.8;margin-top:6px}
+/* ---------- Lesson video player (same card style) ---------- */
+.lesson-video{width:100%;max-height:420px;border-radius:12px;background:#000;margin:10px 0 4px}
+@media(max-width:720px){.reels-feed{max-height:82vh;max-height:82dvh;gap:10px;padding:0;max-width:none;margin:0 -16px}.reel-card{height:76vh;height:76dvh;min-height:500px;max-width:100%;width:calc(76vh * 9 / 16);width:calc(76dvh * 9 / 16);border-radius:14px}.reel-info{padding:36px 12px 12px}.reel-info h3{font-size:18px}.reel-info p{font-size:12.5px}.reel-formula{font-size:12px;margin-bottom:10px}.reel-quiz{min-height:46px;font-size:14px}.reel-side{right:6px}}
+/* ---------- Clean materials look ---------- */
+#materialsView .page-heading{margin-bottom:16px}
+#materialsView .material-toolbar{margin-bottom:14px}
+#materialsView .chip-row{margin:0 0 14px}
+@media(max-width:720px){#materialsView{padding-top:20px;padding-bottom:40px}#materialsView .page-heading h1{font-size:26px}#materialsView .page-heading p{font-size:14px}}
+/* scrub time bubble while dragging */
+.reel-scrub-tip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:8;background:rgba(0,0,0,.68);color:#fff;font-weight:800;font-size:17px;padding:10px 18px;border-radius:12px;pointer-events:none;display:none;white-space:nowrap}
+.reel-scrub-tip.show{display:block}
+/* YouTube-style seek flash while dragging */
+.reel-seek-flash{position:absolute;top:0;bottom:0;width:45%;z-index:7;display:none;place-items:center;font-size:54px;font-weight:900;color:#fff;pointer-events:none}
+.reel-seek-flash.show{display:grid;animation:seekpulse .55s ease-in-out infinite alternate}
+.reel-seek-flash.fwd{right:0;background:linear-gradient(to left,rgba(0,0,0,.45),transparent)}
+.reel-seek-flash.back{left:0;background:linear-gradient(to right,rgba(0,0,0,.45),transparent)}
+@keyframes seekpulse{from{opacity:.35}to{opacity:1}}

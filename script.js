@@ -9,23 +9,20 @@ const icon = {
  arrow:'<svg class="arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>'
 };
 const lessons = [
-{id:'faraday',title:"Faraday's Law & Applications",short:'Faraday’s Law & Applications',description:'Understand electromagnetic induction, generators, transformers, and practical heating.',icon:'book',category:'Electromagnetism',level:'Beginner',duration:'8 min',tags:['Magnetic Flux','Faraday’s Law','Induction','EMF'],formula:'ε = −N × (ΔΦ / Δt)',intro:'Faraday’s law explains how a changing magnetic field can produce an electric voltage in a conductor. This process is called electromagnetic induction.',sections:[{title:'What is electromagnetic induction?',body:'Electromagnetic induction occurs when the magnetic flux through a coil changes. The change can happen when a magnet moves near a coil, when the coil moves through a magnetic field, or when the magnetic field itself changes.'},{title:'Faraday’s law',body:'The induced electromotive force (EMF) depends on how quickly magnetic flux changes and on the number of turns in the coil. A faster change or more coil turns creates a larger induced voltage.'},{title:'Where is it used?',body:'Generators use motion to produce electricity. Transformers use changing magnetic fields to transfer electrical energy between coils. Induction cooktops use changing magnetic fields to heat compatible cookware.'}],example:'A coil has 20 turns and its magnetic flux changes by 0.5 weber in 2 seconds. The magnitude of the induced EMF is 20 × (0.5 / 2) = 5 volts.',quiz:[{q:'What causes electromagnetic induction?',opts:['A constant magnetic field only','A change in magnetic flux','A material becoming heavier','A decrease in temperature'],a:1,why:'Electromagnetic induction occurs when magnetic flux through a conductor changes.'},{q:'Which device commonly uses electromagnetic induction to generate electricity?',opts:['Electric generator','Thermometer','Magnifying glass','Pendulum clock'],a:0,why:'A generator uses relative motion between a conductor and magnetic field to induce voltage.'},{q:'What does the negative sign in Faraday’s law represent?',opts:['The coil has no resistance','The current is always negative','Lenz’s law: the induced effect opposes the change','The magnetic field disappears'],a:2,why:'The negative sign expresses Lenz’s law: the induced effect opposes the change in magnetic flux.'}]},
-{id:'mechanics',title:'Classical Mechanics',description:'Understand motion, forces, momentum, and energy in everyday objects.',icon:'mechanics',category:'Motion & Energy',level:'Beginner',duration:'7 min',tags:['Newton’s Laws','Motion','Energy','Momentum'],formula:'F = m × a',intro:'Classical mechanics describes how objects move and how forces affect their motion. It helps explain many everyday events, from a rolling ball to a moving vehicle.',sections:[{title:'Motion and forces',body:'Motion describes a change in an object’s position over time. A force is a push or pull that can change an object’s speed, direction, or shape.'},{title:'Newton’s second law',body:'The net force acting on an object equals its mass multiplied by its acceleration. For the same force, a smaller mass has greater acceleration.'},{title:'Energy and momentum',body:'Kinetic energy is energy due to motion. Momentum depends on mass and velocity. Both ideas help scientists analyze collisions and moving systems.'}],example:'If a 2 kg cart accelerates at 3 m/s², the net force is F = 2 × 3 = 6 newtons.',quiz:[{q:'Which equation represents Newton’s second law?',opts:['F = m × a','E = m × c','V = I × R²','P = m / a'],a:0,why:'Newton’s second law states that net force equals mass multiplied by acceleration.'},{q:'What is the SI unit of force?',opts:['Joule','Watt','Newton','Pascal'],a:2,why:'Force is measured in newtons (N). One newton is one kilogram metre per second squared.'},{q:'What happens to acceleration if the same net force acts on a smaller mass?',opts:['It decreases','It increases','It becomes zero','It never changes'],a:1,why:'From a = F/m, a smaller mass produces greater acceleration when net force stays constant.'}]},
-{id:'electromagnetism',title:'Electromagnetism',description:'Explore electric and magnetic fields and how they interact.',icon:'bolt',category:'Electricity & Magnetism',level:'Beginner',duration:'6 min',tags:['Electric Fields','Magnetic Fields','Maxwell’s Equations'],formula:'F = q × E',intro:'Electromagnetism studies the relationship between electric charges, electric fields, magnetic fields, and currents.',sections:[{title:'Electric fields',body:'An electric field describes the force that a positive test charge would experience at a location. Electric fields are produced by electric charges.'},{title:'Magnetic fields',body:'Magnetic fields surround magnets and moving electric charges. They influence moving charged particles and are important in motors and generators.'},{title:'How they connect',body:'Changing electric and magnetic fields are connected. This relationship explains electromagnetic waves, including radio waves and visible light.'}],example:'A charge of 2 coulombs in an electric field of 3 newtons per coulomb experiences a force of F = 2 × 3 = 6 newtons.',quiz:[{q:'What produces an electric field?',opts:['Electric charges','Sound waves only','Mass alone','Temperature alone'],a:0,why:'Electric charges create electric fields around them.'},{q:'Which device converts electrical energy into mechanical motion using magnetic effects?',opts:['Electric motor','Barometer','Thermometer','Compass alone'],a:0,why:'Electric motors use the interaction of electric current and magnetic fields to create motion.'},{q:'Visible light is an example of what?',opts:['A mechanical wave only','An electromagnetic wave','A static charge','A sound wave'],a:1,why:'Visible light is part of the electromagnetic spectrum.'}]},
-{id:'quantum',title:'Introduction to Quantum Physics',description:'Discover how matter and energy behave at the smallest scales.',icon:'atom',category:'Modern Physics',level:'Beginner',duration:'9 min',tags:['Photons','Wave-Particle Duality','Energy Levels'],formula:'E = h × f',intro:'Quantum physics explores matter and energy at atomic and subatomic scales, where nature can behave differently from our everyday experience.',sections:[{title:'Energy comes in packets',body:'In many quantum systems, energy is exchanged in discrete amounts called quanta. Light can be described as packets of energy called photons.'},{title:'Wave-particle duality',body:'Quantum objects can show both wave-like and particle-like properties. Which behavior appears depends on how the system is measured.'},{title:'Quantized energy levels',body:'Atoms have specific allowed energy levels. When an electron changes levels, it can absorb or emit a photon with a corresponding energy.'}],example:'A photon’s energy increases when its frequency increases, because photon energy is E = h × f.',quiz:[{q:'What is a packet of light energy called?',opts:['A proton','A photon','A neutron','A molecule'],a:1,why:'A photon is a quantum or packet of electromagnetic radiation.'},{q:'What does E = h × f relate?',opts:['Energy and frequency','Force and mass','Pressure and volume','Distance and time'],a:0,why:'Planck’s relation says photon energy equals Planck’s constant times frequency.'},{q:'What does wave-particle duality mean?',opts:['All objects are only waves','Quantum objects can show wave-like and particle-like properties','Waves always travel slower','Particles cannot have energy'],a:1,why:'Wave-particle duality describes the wave-like and particle-like properties of quantum systems.'}]},
-{id:'simulations',title:'Quantum Simulations',description:'Use simple interactive models to explore waves, probability, and quantum ideas.',icon:'grid',category:'Interactive Learning',level:'Beginner',duration:'5 min',tags:['Wave Models','Probability','Observation'],formula:'P = |ψ|²',intro:'Simulations are simplified models that help learners explore concepts by changing values and observing the results.',sections:[{title:'Why use simulations?',body:'Some physics systems are difficult to observe directly. A simulation lets you change one variable at a time and explore how a model responds.'},{title:'Probability in quantum physics',body:'Quantum theory often predicts the probability of possible measurement outcomes. The wave function is used to calculate these probabilities.'},{title:'Explore carefully',body:'A simulation is a learning model, not always a complete copy of nature. Use it to build intuition, then compare what you observe with the underlying scientific explanation.'}],example:'For a normalized wave function, the total probability across all possible outcomes is 1, or 100%.',quiz:[{q:'What is one benefit of a learning simulation?',opts:['It replaces every experiment','It helps explore a model by changing variables','It proves every model is perfect','It removes the need to study'],a:1,why:'Simulations help learners explore how a model responds to changing conditions.'},{q:'In quantum mechanics, what can |ψ|² represent?',opts:['Probability density','Object temperature','Mass in kilograms','Speed of sound'],a:0,why:'The squared magnitude of the wave function is associated with probability density.'},{q:'Why should simulation results be interpreted carefully?',opts:['Models have assumptions and limits','Computers cannot calculate','Physics has no equations','All simulations are random'],a:0,why:'Every model simplifies a system and has assumptions and limitations.'}]},
-{id:'quantum-rng',title:'Quantum RNG',description:'Learn how quantum processes can be used to generate random outcomes.',icon:'cube',category:'Quantum Technology',level:'Beginner',duration:'5 min',tags:['Randomness','Measurement','Probability'],formula:'P(0) + P(1) = 1',intro:'A quantum random number generator uses a quantum process and measurement to produce outcomes that are fundamentally unpredictable according to the model.',sections:[{title:'What is randomness?',body:'A random outcome cannot be reliably predicted in advance from the information available. Random numbers are useful in simulations, sampling, and security applications.'},{title:'Quantum measurement',body:'Some quantum experiments produce different possible outcomes with known probabilities. A measurement produces one result from those possibilities.'},{title:'A simple example',body:'Imagine a balanced two-outcome quantum process with probabilities of 50% and 50%. Each measurement returns one outcome, and repeated measurements build a distribution.'}],example:'If P(0) = 0.5 and P(1) = 0.5, then P(0) + P(1) = 1, representing all possible outcomes.',quiz:[{q:'What does a random number generator produce?',opts:['Only even numbers','Outcomes selected by a random process','Only predictable sequences','Only negative numbers'],a:1,why:'A random number generator produces outcomes using a random or pseudorandom process.'},{q:'If two possible outcomes each have probability 0.5, what is their combined probability?',opts:['0.25','0.5','1.0','2.0'],a:2,why:'The probabilities of all mutually exclusive possible outcomes sum to 1.'},{q:'What happens during quantum measurement in a simple two-outcome model?',opts:['Both outcomes must appear at once on the screen','One of the possible outcomes is observed','The probabilities always become zero','No result can ever be recorded'],a:1,why:'A measurement records one of the possible outcomes of the system.'}]}
+{id:'faraday-law',title:"Faraday's Law",short:'Faraday’s Law',description:'Watch the reel and learn how a changing magnetic field creates an electric current.',icon:'book',category:'Electromagnetic Induction',level:'Beginner',duration:'1 min video',tags:['Magnetic Flux','Induced EMF','Electromagnetic Induction'],formula:'ε = −N × (ΔΦ / Δt)',video:'reels/video-1.mp4',intro:'Faraday’s Law explains how a changing magnetic field can produce an electric voltage in a conductor. This process is called electromagnetic induction — the same idea shown in Video 1.',sections:[{title:'What the video shows',body:'A changing magnetic field through a coil creates an electric current. The change can happen when a magnet moves near a coil, when the coil moves through a magnetic field, or when the magnetic field itself changes.'},{title:'Faraday’s law',body:'The induced electromotive force (EMF) depends on how quickly the magnetic flux changes and on the number of turns in the coil. A faster change or more coil turns creates a larger induced voltage.'},{title:'Key takeaway',body:'No change in flux means no induced current. Only a changing magnetic flux through a conductor induces voltage — this is the main idea to remember from the video.'}],example:'A coil has 20 turns and its magnetic flux changes by 0.5 weber in 2 seconds. The magnitude of the induced EMF is 20 × (0.5 / 2) = 5 volts.',quiz:[{q:'What is the main idea of Faraday’s Law?',opts:['A moving charge creates a magnetic field.','A changing magnetic field induces an electric current.','Electric current produces magnetic force.','A magnetic field cancels an electric field.'],a:1,why:'A changing magnetic flux through a conductor induces an emf and current — exactly what Video 1 shows.'},{q:'What causes electromagnetic induction?',opts:['A constant magnetic field only','A change in magnetic flux','The coil becoming heavier','A drop in temperature'],a:1,why:'Electromagnetic induction occurs only when the magnetic flux through a conductor changes.'},{q:'What is magnetic flux?',opts:['The flow of electric charge','The magnetic field passing through an area','The resistance of a coil','The speed of a magnet'],a:1,why:'Flux is the amount of magnetic field passing through an area.'},{q:'A coil has 20 turns and its flux changes by 0.5 Wb in 2 s. Induced emf magnitude?',opts:['2.5 V','5 V','10 V','20 V'],a:1,why:'EMF = N × (ΔΦ / Δt) = 20 × (0.5 / 2) = 5 V.'}]},
+{id:'lenz-law',title:"Lenz's Law",short:'Lenz’s Law',description:'Watch the reel and learn why the induced current always opposes the change that produced it.',icon:'book',category:'Electromagnetic Induction',level:'Beginner',duration:'1 min video',tags:['Opposition','Conservation of Energy','Induced Direction'],formula:'Induced effects oppose the change',video:'reels/video-2.mp4',intro:'Lenz’s Law tells us the direction of the induced current — it always opposes the change that produced it. This is the focus of Video 2.',sections:[{title:'What the video shows',body:'When magnetic flux through a coil changes, a current is induced. The induced current creates its own magnetic field, and that field always pushes back against the original change.'},{title:'Why the negative sign matters',body:'The negative sign in Faraday’s law (ε = −N × ΔΦ/Δt) expresses Lenz’s Law. It is not about negative voltage — it means the induced effect opposes the change in flux.'},{title:'Energy is conserved',body:'If the induced current helped the change instead of opposing it, we would get energy for free. Lenz’s Law guarantees that energy is conserved: you must do work to push a magnet into a coil.'}],example:'Pushing a magnet toward a coil induces a current whose magnetic field repels the magnet. You feel this resistance — the work you do becomes electrical energy.',quiz:[{q:'What does Lenz’s Law tell us?',opts:['The size of the coil','The direction of the induced current','The color of the magnet','The temperature of the wire'],a:1,why:'Lenz’s Law gives the direction: the induced current opposes the change that produced it.'},{q:'What does the negative sign in Faraday’s law represent?',opts:['The coil has no resistance','The current is always negative','The induced effect opposes the change in flux','The magnetic field disappears'],a:2,why:'The negative sign expresses Lenz’s law — opposition to the change.'},{q:'Why must the induced current oppose the change?',opts:['To save copper wire','To conserve energy','To make magnets stronger','To stop all motion'],a:1,why:'Opposition guarantees energy conservation — pushing the magnet takes work, which becomes electrical energy.'},{q:'Which change increases the induced emf?',opts:['Slower flux change','Fewer coil turns','Faster flux change','Cooling the magnet'],a:2,why:'A faster change in flux (or more turns) creates a larger induced voltage.'}]},
+{id:'generators',title:'Generators',short:'Generators',description:'Watch the reel and learn how rotating coils in magnetic fields power the world.',icon:'bolt',category:'Electromagnetic Induction',level:'Beginner',duration:'1 min video',tags:['Generators','Transformers','AC Power'],formula:'Motion + magnetism = electricity',video:'reels/video-3.mp4',intro:'Generators rotate coils inside magnetic fields to produce electricity, and transformers step the voltage up or down for the grid. This is what Video 3 is about.',sections:[{title:'What the video shows',body:'A coil spinning inside a magnetic field feels a constantly changing flux, so a current is continuously induced. This is how a generator turns motion into electricity.'},{title:'From generator to home',body:'Power stations spin giant coils with turbines. Transformers then use changing magnetic fields to transfer that electrical energy between coils and adjust the voltage for transmission.'},{title:'Where you meet induction daily',body:'Transformers charge your gadgets, induction cooktops heat compatible pans, and wireless chargers all rely on the same principle: a changing magnetic field inducing current.'}],example:'A bicycle dynamo is a tiny generator: as the wheel spins a magnet near a coil, the changing flux induces enough voltage to light the lamp.',quiz:[{q:'Which device uses induction to generate electricity?',opts:['Electric generator','Thermometer','Magnifying glass','Pendulum clock'],a:0,why:'Generators rotate coils in magnetic fields to induce voltage — the core of Video 3.'},{q:'What does a transformer do?',opts:['Measures temperature','Transfers electrical energy between coils using changing flux','Stores light','Cools the wires'],a:1,why:'Transformers use changing magnetic fields to transfer energy between coils and change voltage.'},{q:'Where is Faraday’s Law applied in daily life?',opts:['Transformers and induction cooktops','Only in thermometers','Only in microscopes','Nowhere in daily life'],a:0,why:'Transformers, induction heating, generators, and wireless chargers all use changing flux.'},{q:'What must keep happening inside a working generator?',opts:['The coil must keep rotating in the magnetic field','The magnet must be frozen','The wires must be cut','The flux must stay constant'],a:0,why:'Continuous rotation keeps the flux changing, so current is continuously induced.'}]}
+
 ];
 let activeView='home',currentLesson=null,currentQuiz=null,studentName='',questionIndex=0,answers={},lastResult=null,theme='light',matCat='All',quizCat='All',modalConfirmCb=null;
 const $=s=>document.querySelector(s);
 function safe(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function showToast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>t.classList.remove('show'),2300)}
 function iconFor(name){return icon[name]||icon.atom}
-function materialCard(l){return `<article class="material-card"><div class="feature-icon ${['electromagnetism','quantum','quantum-rng'].includes(l.id)?'violet':''}">${iconFor(l.icon)}</div><h3>${safe(l.title)}</h3><p>${safe(l.description)}</p><div class="material-meta"><span class="tag">${safe(l.category)}</span><span class="tag">${safe(l.duration)}</span></div><div class="card-action"><span>${l.tags.slice(0,2).map(safe).join(' · ')}</span><button class="text-link" data-lesson="${l.id}">Read lesson →</button></div></article>`}
+function materialCard(l){return `<article class="material-card"><div class="feature-icon ${['electromagnetism','quantum','quantum-rng'].includes(l.id)?'violet':''}">${iconFor(l.icon)}</div><h3>${safe(l.title)}</h3><p>${safe(l.description)}</p><div class="material-meta"><span class="tag">${safe(l.category)}</span><span class="tag">${safe(l.duration)}</span>${l.video?`<span class="tag">Video included</span>`:``}</div><div class="card-action"><span>${l.tags.slice(0,2).map(safe).join(' · ')}</span><button class="text-link" data-lesson="${l.id}">Read lesson →</button></div></article>`}
 function quizCard(l){return `<article class="quiz-card"><div class="feature-icon ${['electromagnetism','quantum','quantum-rng'].includes(l.id)?'violet':''}">${iconFor(l.icon)}</div><h3>${safe(l.title)}</h3><p>${safe(l.description)}</p><div class="material-meta"><span class="tag">${l.quiz.length} questions</span><span class="tag">${safe(l.duration)}</span></div><button class="btn btn-primary" style="margin-top:18px" data-startquiz="${l.id}">Start Quiz ${icon.arrow}</button></article>`}
-function renderMaterials(filter='') {const q=filter.toLowerCase();const list=lessons.filter(l=>(matCat==='All'||l.category===matCat)&&(l.title+' '+l.description+' '+l.tags.join(' ')).toLowerCase().includes(q));$('#materialsGrid').innerHTML=list.length?list.map(materialCard).join(''):`<div class="empty-state" style="grid-column:1/-1">${icon.book}<strong>No materials found</strong><p>No topics match your search. Try another term or pick a different category.</p><button class="btn btn-outline" data-action="clearSearch" style="margin-top:14px">Reset filters</button></div>`}
 function renderQuizzes(){const list=lessons.filter(l=>quizCat==='All'||l.category===quizCat);$('#quizGrid').innerHTML=list.length?list.map(quizCard).join(''):`<div class="empty-state" style="grid-column:1/-1">${icon.book}<strong>No quizzes found</strong><p>Try a different category.</p><button class="btn btn-outline" data-action="clearQuizFilter" style="margin-top:14px">Show all quizzes</button></div>`}
-function renderLesson(l){currentLesson=l;$('#lessonContent').innerHTML=` <nav class="crumbs" aria-label="Breadcrumb"><button class="back-link" data-view="materials">← Learning Materials</button><span aria-hidden="true">›</span><span class="current">${safe(l.title)}</span></nav><div class="lesson-layout"><article class="lesson-panel"><div class="feature-icon">${iconFor(l.icon)}</div><div class="section-kicker">${safe(l.category)} · ${safe(l.duration)} read</div><h1>${safe(l.title)}</h1><p class="lead">${safe(l.intro)}</p><h2>Key formula</h2><div class="formula-box">${safe(l.formula)}</div>${l.sections.map(s=>`<h2>${safe(s.title)}</h2><p>${safe(s.body)}</p>`).join('')}<h2>Example</h2><div class="note">${safe(l.example)}</div><button class="btn btn-primary" data-startquiz="${l.id}">Take the optional quiz ${icon.arrow}</button></article><aside class="side-panel"><h3>In this lesson</h3><p>Use this quick checklist as you study.</p><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Understand the main concept</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Review the key formula</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Read the worked example</span></div><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3>Ready to practice?</h3><p>Test what you learned. You will enter your name before the quiz starts.</p><button class="btn btn-primary" data-startquiz="${l.id}">Start Quiz</button><button class="btn btn-outline" data-view="quizzes" style="width:100%;margin-top:8px">See All Quizzes</button></aside></div>`;showView('lesson')}
+function renderLesson(l){currentLesson=l;$('#lessonContent').innerHTML=` <nav class="crumbs" aria-label="Breadcrumb"><button class="back-link" data-view="materials">← Learning Materials</button><span aria-hidden="true">›</span><span class="current">${safe(l.title)}</span></nav><div class="lesson-layout"><article class="lesson-panel"><div class="feature-icon">${iconFor(l.icon)}</div><div class="section-kicker">${safe(l.category)} · ${safe(l.duration)} read</div><h1>${safe(l.title)}</h1><p class="lead">${safe(l.intro)}</p>${l.video?`<video class="lesson-video" src="${l.video}" controls playsinline preload="auto"></video>`:``}<h2>Key formula</h2><div class="formula-box">${safe(l.formula)}</div>${l.sections.map(s=>`<h2>${safe(s.title)}</h2><p>${safe(s.body)}</p>`).join('')}<h2>Example</h2><div class="note">${safe(l.example)}</div><button class="btn btn-primary" data-startquiz="${l.id}">Take the optional quiz ${icon.arrow}</button></article><aside class="side-panel"><h3>In this lesson</h3><p>Use this quick checklist as you study.</p><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Understand the main concept</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Review the key formula</span></div><div style="display:flex;gap:10px;align-items:flex-start;margin:16px 0;font-size:15px;font-weight:600"><span style="color:#4c8df0">✓</span><span>Read the worked example</span></div><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3>Ready to practice?</h3><p>Test what you learned. You will enter your name before the quiz starts.</p><button class="btn btn-primary" data-startquiz="${l.id}">Start Quiz</button><button class="btn btn-outline" data-view="quizzes" style="width:100%;margin-top:8px">See All Quizzes</button></aside></div>`;showView('lesson')}
 function beginQuiz(id){currentQuiz=lessons.find(l=>l.id===id);if(!currentQuiz)return;studentName='';questionIndex=0;answers={};lastResult=null;renderQuizStart();showView('quiz')}
 function renderQuizStart(){$('#quizContent').innerHTML=`<div class="quiz-panel quiz-start"><button class="back-link" data-view="quizzes">← Back to quizzes</button><div class="feature-icon">${iconFor(currentQuiz.icon)}</div><div class="section-kicker">Optional knowledge check</div><h2>${safe(currentQuiz.title)} Quiz</h2><p>${safe(currentQuiz.description)}</p><div class="score-stats" style="display:flex;gap:9px;margin:18px 0"><span class="tag">${currentQuiz.quiz.length} questions</span><span class="tag">Multiple choice</span><span class="tag">Instant results</span></div><form id="studentNameForm"><div class="name-field"><label for="studentName">Enter your name to begin</label><input id="studentName" name="studentName" autocomplete="name" maxlength="70" placeholder="Type your full name" required></div><button class="btn btn-primary" type="submit">Begin Quiz ${icon.arrow}</button><button class="btn btn-outline" type="button" data-view="quizzes" style="margin-left:8px">Not now</button></form><p style="font-size:14px;font-weight:500;margin-top:18px">You can choose not to take this quiz and return to learning materials whenever you like.</p></div>`}
 function renderQuestion(){const q=currentQuiz.quiz[questionIndex],pct=Math.round((questionIndex/currentQuiz.quiz.length)*100);$('#quizContent').innerHTML=`<div class="quiz-panel" style="max-width:780px;margin:auto"><div class="quiz-top"><button class="back-link" data-action="exitQuiz" style="margin:0">← Exit quiz</button><span>Question ${questionIndex+1} of ${currentQuiz.quiz.length}</span></div><div class="quiz-progress"><span style="width:${pct}%"></span></div><div class="question-number">Question ${questionIndex+1}</div><h2 class="question-title">${safe(q.q)}</h2><div id="answers">${q.opts.map((opt,i)=>`<label class="answer-option ${answers[questionIndex]===i?'selected':''}"><input type="radio" name="answer" value="${i}" ${answers[questionIndex]===i?'checked':''}><span class="answer-letter">${String.fromCharCode(65+i)}</span><span>${safe(opt)}</span></label>`).join('')}</div><div class="quiz-controls"><button class="btn btn-outline" data-action="previous" ${questionIndex===0?'disabled':''}>Previous</button>${questionIndex<currentQuiz.quiz.length-1?`<button class="btn btn-primary" data-action="next">Next Question ${icon.arrow}</button>`:`<button class="btn btn-primary" data-action="submit">Submit Quiz ✓</button>`}</div><p style="font-size:14px;font-weight:500;color:var(--muted);margin:17px 0 0">Your score will appear after you submit your answers.</p></div>`}
@@ -54,4 +51,313 @@ function renderProgress(){const all=getResults().filter(r=>r&&typeof r.percent==
 $('#modalConfirm').addEventListener('click',()=>{const cb=modalConfirmCb;closeModal();if(cb)cb()});
 $('#modalCancel').addEventListener('click',closeModal);
 $('#modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop')closeModal()});
+/* ---------- Reels engine (Learning Materials as vertical video reels) ---------- */
+let reelIndex = 0, reelObs = null, reelLikes = {};
+let audioUnlocked = false, quizOffered = {};
+function unlockAudio() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+  try {
+    const cards = reelCards();
+    const c = cards[reelIndex] || cards[0];
+    if (c) {
+      const v = c.querySelector("video");
+      if (v && !v.paused && v.muted) {
+        v.muted = false;
+        const m = c.querySelector('[data-ract="mute"]');
+        
+      }
+    }
+  } catch (e) {}
+}
+document.addEventListener("pointerdown", unlockAudio);
+document.addEventListener("keydown", unlockAudio);
+try { reelLikes = JSON.parse(localStorage.getItem("vql_likes") || "{}"); } catch (e) { reelLikes = {}; }
+function fmtT(s) { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); }
+const RIC = {
+  play: '<svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>',
+  pause: '<svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><rect x="6" y="4.5" width="4.5" height="15" rx="1"/><rect x="13.5" y="4.5" width="4.5" height="15" rx="1"/></svg>',
+  mute: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="m16 9 5 6m0-6-5 6"/></svg>',
+  sound: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" stroke="none"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg>',
+  heart: '<svg viewBox="0 0 24 24" width="22" height="22" fill="FILLCOLOR" stroke="currentColor" stroke-width="1.8"><path d="M12 20.5C7 16.5 3 13.2 3 9.3 3 6.4 5.2 4.5 7.7 4.5c1.7 0 3.3.9 4.3 2.4 1-1.5 2.6-2.4 4.3-2.4 2.5 0 4.7 1.9 4.7 4.8 0 3.9-4 7.2-9 11.2z"/></svg>'
+};
+function reelCardHTML(l, i, n) {
+  const liked = !!reelLikes[l.id];
+  return `<article class="reel-card" data-reel="${l.id}" data-idx="${i}" tabindex="0" aria-label="${safe(l.title)}, video ${i + 1} of ${n}">`
+  + `<div class="reel-screen"><video src="${l.video}" playsinline preload="auto"></video>`
+  + `<button class="reel-play" data-ract="play" aria-label="Play or pause">${RIC.play}</button>`
+  + `</div>`
+  + `<div class="reel-side">`
+  + `<button class="reel-icon${liked ? " liked" : ""}" data-ract="like" aria-label="Like this video">${RIC.heart.split("FILLCOLOR").join(liked ? "currentColor" : "none")}<small>${liked ? "Liked" : "Like"}</small></button>`
+  + `<button class="reel-icon" data-ract="lesson" aria-label="Read the full lesson">${icon.book}<small>Lesson</small></button>`
+  + `</div>`
+  + `<div class="reel-info"><p>${safe(l.description)}</p>`
+  + `<div class="reel-formula">${safe(l.formula)}</div>`
+  + `<button class="btn btn-primary reel-quiz" data-ract="quiz">Take the Quiz ${icon.arrow}</button>`
+  + `<div class="reel-time"><span data-rt>0:00 / 0:00</span></div>`
+  + `</div>`
+  + `<div class="reel-progress"><span data-bar style="width:0%"></span></div>`
+  + `</article>`;
+}
+function renderMaterials(filter) {
+  const q = String(filter || "").toLowerCase();
+  const list = lessons.filter(l => (matCat === "All" || l.category === matCat) && (l.title + " " + l.description + " " + l.tags.join(" ")).toLowerCase().includes(q));
+  const grid = $("#materialsGrid");
+  grid.className = list.length ? "reels-feed" : "materials-grid";
+  grid.innerHTML = list.length ? list.map((l, i) => reelCardHTML(l, i, list.length)).join("") : `<div class="empty-state" style="grid-column:1/-1">${icon.book}<strong>No materials found</strong><p>No topics match your search. Try another term or pick a different category.</p><button class="btn btn-outline" data-action="clearSearch" style="margin-top:14px">Reset filters</button></div>`;
+  setupReelObserver();
+}
+function reelCards() { const g = $("#materialsGrid"); return g ? Array.prototype.slice.call(g.querySelectorAll(".reel-card")) : []; }
+function updateReelPlayIcon(card) {
+  const v = card.querySelector("video"), b = card.querySelector('[data-ract="play"]');
+  if (!v || !b) return;
+  const playing = !v.paused && !v.ended;
+  card.classList.toggle("playing", playing);
+  b.innerHTML = playing ? RIC.pause : RIC.play;
+}
+function pauseAllReels(except) {
+  reelCards().forEach(c => {
+    const v = c.querySelector("video");
+    if (v && v !== except && !v.paused) { try { v.pause(); } catch (e) {} }
+    updateReelPlayIcon(c);
+  });
+}
+function setActiveReel(i) {
+  const cards = reelCards();
+  if (!cards.length) return;
+  reelIndex = (i + cards.length) % cards.length;
+  cards.forEach((c, ci) => {
+    const v = c.querySelector("video");
+    if (!v) return;
+    if (ci === reelIndex) { try { v.muted = false; try { v.volume = 1; } catch (e2) {} const m0 = c.querySelector('[data-ract="mute"]'); const pr = v.play(); if (pr && pr.catch) pr.catch(() => { try { v.muted = true; const m = c.querySelector('[data-ract="mute"]'); v.play().catch(() => {}); } catch (e2) {} }); } catch (e) {} }
+    else { try { v.pause(); } catch (e) {} }
+    updateReelPlayIcon(c);
+  });
+}
+function setupReelObserver() {
+  try { if (reelObs) reelObs.disconnect(); } catch (e) {}
+  reelObs = null;
+  const grid = $("#materialsGrid");
+  if (!grid) return;
+  reelIndex = 0;
+  if (typeof IntersectionObserver === "undefined") return;
+  try {
+    reelObs = new IntersectionObserver(entries => {
+      for (const en of entries) {
+        if (en.isIntersecting && en.intersectionRatio >= 0.55) {
+          const i = Number(en.target.dataset.idx);
+          if (i !== reelIndex) setActiveReel(i);
+        }
+      }
+    }, { root: grid, threshold: [0.55] });
+    grid.querySelectorAll(".reel-card").forEach(c => reelObs.observe(c));
+    setActiveReel(0);
+  } catch (e) {}
+}
+function scrollReel(d) {
+  const cards = reelCards();
+  if (!cards.length) return;
+  const n = (reelIndex + d + cards.length) % cards.length;
+  const el = cards[n];
+  if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  setActiveReel(n);
+}
+/* reel feed interactions */
+$("#materialsGrid").addEventListener("click", e => {
+  const btn = e.target.closest("[data-ract]");
+  const card = e.target.closest(".reel-card");
+  if (!card) return;
+  const id = card.dataset.reel;
+  const l = lessons.find(x => x.id === id);
+  const v = card.querySelector("video");
+  if (!btn) {
+    if (v && e.target === v) { if (suppressTap) return; if (v.paused) { pauseAllReels(v); try { audioUnlocked = true; v.muted = false; const mb = card.querySelector('[data-ract="mute"]'); } catch (e2) {} v.play().catch(() => {}); } else { v.pause(); } updateReelPlayIcon(card); }
+    return;
+  }
+  const act = btn.dataset.ract;
+  if (act === "play") {
+    reelIndex = Number(card.dataset.idx) || 0;
+    if (!v) return;
+    if (v.paused) { pauseAllReels(v); try { audioUnlocked = true; v.muted = false; const mb2 = card.querySelector('[data-ract="mute"]'); } catch (e2) {} v.play().catch(() => {}); } else { v.pause(); }
+    updateReelPlayIcon(card);
+  } else if (act === "like") {
+    if (reelLikes[id]) { delete reelLikes[id]; } else { reelLikes[id] = 1; }
+    try { localStorage.setItem("vql_likes", JSON.stringify(reelLikes)); } catch (err) {}
+    const on = !!reelLikes[id];
+    btn.classList.toggle("liked", on);
+    btn.querySelector("svg").setAttribute("fill", on ? "currentColor" : "none");
+    btn.querySelector("small").textContent = on ? "Liked" : "Like";
+    if (on) showToast("Added to your liked videos");
+  } else if (act === "back" || act === "fwd") {
+    if (!v) return;
+    try { let t = v.currentTime + (act === "fwd" ? 10 : -10); const dd = v.duration; t = (dd && isFinite(dd)) ? Math.min(Math.max(0, t), dd) : Math.max(0, t); v.currentTime = t; } catch (e2) {}
+  } else if (act === "quiz") {
+    if (!l) return;
+    pauseAllReels();
+    beginQuiz(id);
+  } else if (act === "lesson") {
+    if (!l) return;
+    pauseAllReels();
+    renderLesson(l);
+  }
+});
+/* video progress + play state + ENDED -> quiz popup (skippable) */
+$("#materialsGrid").addEventListener("timeupdate", e => {
+  const v = e.target;
+  if (!v || v.tagName !== "VIDEO") return;
+  const card = v.closest(".reel-card");
+  if (!card) return;
+  const dur = v.duration || 0, cur = v.currentTime || 0;
+  card.querySelectorAll("[data-bar]").forEach(bar => { if (dur) bar.style.width = (cur / dur * 100) + "%"; });
+  const t = card.querySelector("[data-rt]");
+  if (t) t.textContent = fmtT(cur) + " / " + fmtT(dur);
+}, true);
+$("#materialsGrid").addEventListener("loadedmetadata", e => {
+  const v = e.target;
+  if (!v || v.tagName !== "VIDEO") return;
+  const card = v.closest(".reel-card");
+  if (!card) return;
+  const t = card.querySelector("[data-rt]");
+  if (t) t.textContent = "0:00 / " + fmtT(v.duration || 0);
+}, true);
+["play", "pause"].forEach(ev => {
+  $("#materialsGrid").addEventListener(ev, e => {
+    const v = e.target;
+    if (!v || v.tagName !== "VIDEO") return;
+    const card = v.closest(".reel-card");
+    if (card) updateReelPlayIcon(card);
+  }, true);
+});
+$("#materialsGrid").addEventListener("ended", e => {
+  const v = e.target;
+  if (!v || v.tagName !== "VIDEO") return;
+  const card = v.closest(".reel-card");
+  if (!card) return;
+  updateReelPlayIcon(card);
+  const mv = $("#materialsView");
+  if (!mv || !mv.classList.contains("active")) return;
+  const id = card.dataset.reel;
+  const l = lessons.find(x => x.id === id);
+  if (!l) return;
+  if (quizOffered[id]) return;
+  quizOffered[id] = 1;
+  openConfirm("Video finished", 'You finished "' + l.title + '". Take the quiz now?', "Take Quiz", () => beginQuiz(id));
+  $("#modalCancel").textContent = "Skip";
+}, true);
+/* pause reels when leaving to another view / lesson / quiz */
+document.addEventListener("click", e => {
+  if (e.target.closest("[data-view],[data-lesson],[data-startquiz]")) { audioUnlocked = true; pauseAllReels(); }
+  if (e.target.closest('[data-view="materials"]')) setTimeout(() => { try { setActiveReel(reelIndex); } catch (err) {} }, 80);
+});
+/* restore Skip/Cancel label after the quiz offer closes */
+["modalConfirm", "modalCancel"].forEach(mid => {
+  document.getElementById(mid).addEventListener("click", () => { $("#modalCancel").textContent = "Cancel"; });
+});
+$("#modalBackdrop").addEventListener("click", e => { if (e.target.id === "modalBackdrop") $("#modalCancel").textContent = "Cancel"; });
+/* keyboard: up/down to move between reels */
+document.addEventListener("keydown", e => {
+  const mv = $("#materialsView");
+  if (!mv || !mv.classList.contains("active")) return;
+  if (e.target.matches("input,textarea")) return;
+  if (e.key === "ArrowDown") { e.preventDefault(); scrollReel(1); }
+  if (e.key === "ArrowUp") { e.preventDefault(); scrollReel(-1); }
+});
+
+function seekFromEvent(v, bar, e) {
+  try {
+    const r = bar.getBoundingClientRect();
+    const x = (e.touches && e.touches[0] ? e.touches[0].clientX : e.clientX);
+    const ratio = Math.min(1, Math.max(0, (x - r.left) / r.width));
+    if (v.duration) v.currentTime = ratio * v.duration;
+  } catch (err) {}
+}
+let scrubbing = null;
+$("#materialsGrid").addEventListener("pointerdown", e => {
+  const bar = e.target.closest(".reel-progress");
+  if (!bar) return;
+  const card = e.target.closest(".reel-card");
+  const v = card && card.querySelector("video");
+  if (!v) return;
+  e.preventDefault();
+  scrubbing = { v, bar };
+  seekFromEvent(v, bar, e);
+});
+document.addEventListener("pointermove", e => { if (scrubbing && e.buttons) { seekFromEvent(scrubbing.v, scrubbing.bar, e); showScrubTip(scrubbing.bar.closest(".reel-card"), fmtT(scrubbing.v.currentTime) + " / " + fmtT(scrubbing.v.duration || 0)); } });
+document.addEventListener("pointerup", () => { scrubbing = null; hideScrubTip(); });
+function showScrubTip(card, text) {
+  try {
+    if (!card) return;
+    let tip = card.querySelector(".reel-scrub-tip");
+    if (!tip) { tip = document.createElement("div"); tip.className = "reel-scrub-tip"; const scr = card.querySelector(".reel-screen"); (scr || card).appendChild(tip); }
+    tip.textContent = text;
+    tip.classList.add("show");
+  } catch (err) {}
+}
+function flashSeekDir(card, dir) {
+  try {
+    if (!card) return;
+    let f = card.querySelector(".reel-seek-flash");
+    if (!f) { f = document.createElement("div"); f.className = "reel-seek-flash"; const scr = card.querySelector(".reel-screen"); (scr || card).appendChild(f); }
+    f.textContent = dir === "fwd" ? "\u00BB" : "\u00AB";
+    f.classList.remove("fwd", "back", "show");
+    void f.offsetWidth;
+    f.classList.add("show", dir);
+  } catch (err) {}
+}
+function hideSeekFlash() { try { document.querySelectorAll(".reel-seek-flash.show").forEach(t => t.classList.remove("show", "fwd", "back")); } catch (err) {} }
+function hideScrubTip() { try { document.querySelectorAll(".reel-scrub-tip.show").forEach(t => t.classList.remove("show")); } catch (err) {} }
+let hdrag = null, suppressTap = false, holdTimer = null;
+$("#materialsGrid").addEventListener("pointerdown", e => {
+  if (e.target.closest("[data-ract]")) return;
+  const scr = e.target.closest(".reel-screen");
+  if (!scr) return;
+  const card = e.target.closest(".reel-card");
+  const v = card && card.querySelector("video");
+  if (!v || !v.duration || !isFinite(v.duration)) return;
+  hdrag = { v, card, x0: e.clientX, y0: e.clientY, t0: v.currentTime, dur: v.duration, active: false };
+  try { clearTimeout(holdTimer); } catch (err) {}
+  holdTimer = setTimeout(() => {
+    if (!hdrag || hdrag.active) return;
+    hdrag.held = true;
+    hdrag.active = true;
+    try { hdrag.v.pause(); } catch (err2) {}
+    try { if (navigator.vibrate) navigator.vibrate(10); } catch (err2) {}
+    showScrubTip(hdrag.card, fmtT(hdrag.v.currentTime) + " / " + fmtT(hdrag.dur));
+  }, 350);
+});
+document.addEventListener("pointermove", e => {
+  if (!hdrag) return;
+  const dx = e.clientX - hdrag.x0, dy = e.clientY - hdrag.y0;
+  if (!hdrag.active) {
+    if (Math.abs(dx) < 12) return;
+    if (Math.abs(dy) > Math.abs(dx)) { hdrag = null; return; }
+    hdrag.active = true;
+    try { hdrag.v.pause(); } catch (err) {}
+    showScrubTip(hdrag.card, fmtT(hdrag.t0) + " / " + fmtT(hdrag.dur));
+  }
+  if (e.buttons === 0 && e.pointerType === "mouse") return;
+  const W = (hdrag.card && hdrag.card.clientWidth) || 300;
+  let t = hdrag.t0 + (dx / W) * hdrag.dur;
+  t = Math.min(Math.max(0, t), hdrag.dur);
+  try { hdrag.v.currentTime = t; } catch (err) {}
+  showScrubTip(hdrag.card, fmtT(t) + " / " + fmtT(hdrag.dur));
+  flashSeekDir(hdrag.card, dx >= 0 ? "fwd" : "back");
+});
+document.addEventListener("pointerup", () => { if (hdrag && hdrag.active) { suppressTap = true; setTimeout(() => { suppressTap = false; }, 80); } try { clearTimeout(holdTimer); } catch (err) {} hdrag = null; hideScrubTip(); hideSeekFlash(); });
+$("#materialsGrid").addEventListener("contextmenu", e => { if (e.target.closest(".reel-screen")) e.preventDefault(); });
+document.addEventListener("pointercancel", () => { try { clearTimeout(holdTimer); } catch (err) {} hdrag = null; hideScrubTip(); hideSeekFlash(); });
+/* SINGLE-PLAY-ENFORCER: only one video may play at a time (reels + lesson videos) */
+document.addEventListener("play", e => {
+  const v = e.target;
+  if (!v || v.tagName !== "VIDEO") return;
+  try {
+    document.querySelectorAll("video").forEach(o => {
+      if (o !== v && !o.paused) { try { o.pause(); } catch (err) {} }
+    });
+  } catch (err) {}
+  try {
+    const card = v.closest ? v.closest(".reel-card") : null;
+    if (card) updateReelPlayIcon(card);
+  } catch (err) {}
+}, true);
 applyTheme(theme);renderMaterials();renderQuizzes();renderChips('materialChips',matCat);renderChips('quizChips',quizCat);
