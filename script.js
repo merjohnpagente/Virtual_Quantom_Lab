@@ -55,7 +55,6 @@ $('#modalBackdrop').addEventListener('click',e=>{if(e.target.id==='modalBackdrop
 let reelIndex = 0, reelObs = null, reelLikes = {};
 let audioUnlocked = false, quizOffered = {};
 function unlockAudio() {
-  if (audioUnlocked) return;
   audioUnlocked = true;
   try {
     const cards = reelCards();
@@ -64,11 +63,46 @@ function unlockAudio() {
       const v = c.querySelector("video");
       if (v && !v.paused && v.muted) {
         v.muted = false;
-        const m = c.querySelector('[data-ract="mute"]');
-        
+        try { v.volume = 1; } catch (e2) {}
+        v.play().catch(() => {});
+        c.classList.add("audible");
       }
     }
   } catch (e) {}
+}
+// Autoplay helper: browsers only allow autoplay when muted, so always
+// start muted and only unmute after the student has interacted.
+function tryPlayReel(card, withSound) {
+  const v = card && card.querySelector("video");
+  if (!v) return;
+  try {
+    v.muted = withSound ? false : true;
+    if (withSound) { try { v.volume = 1; } catch (e2) {} }
+    card.classList.toggle("audible", withSound === true);
+    const pr = v.play();
+    if (pr && pr.catch) pr.catch(() => {
+      // Fallback: stay muted and play anyway (guaranteed to be allowed)
+      try { v.muted = true; card.classList.remove("audible"); v.play().catch(() => {}); } catch (e2) {}
+    });
+  } catch (e) {}
+}
+function autoplayVisibleReel() {
+  const cards = reelCards();
+  if (!cards.length) return;
+  // Pick the card closest to the viewport center (works with page scroll)
+  let best = 0, bestScore = -1;
+  const mid = window.innerHeight / 2;
+  cards.forEach((c, i) => {
+    try {
+      const r = c.getBoundingClientRect();
+      // Visible only if at least partly on screen and materials view is active
+      if (r.bottom > 0 && r.top < window.innerHeight) {
+        const score = 1 - Math.min(1, Math.abs((r.top + r.bottom) / 2 - mid) / window.innerHeight);
+        if (score > bestScore) { bestScore = score; best = i; }
+      }
+    } catch (e) {}
+  });
+  setActiveReel(best);
 }
 document.addEventListener("pointerdown", unlockAudio);
 document.addEventListener("keydown", unlockAudio);
@@ -84,8 +118,9 @@ const RIC = {
 function reelCardHTML(l, i, n) {
   const liked = !!reelLikes[l.id];
   return `<article class="reel-card" data-reel="${l.id}" data-idx="${i}" tabindex="0" aria-label="${safe(l.title)}, video ${i + 1} of ${n}">`
-  + `<div class="reel-screen"><video src="${l.video}" playsinline preload="auto"></video>`
+  + `<div class="reel-screen"><video src="${l.video}" muted autoplay playsinline preload="auto"></video>`
   + `<button class="reel-play" data-ract="play" aria-label="Play or pause">${RIC.play}</button>`
+  + `<button class="reel-sound" data-ract="sound" aria-label="Tap for sound">🔇 Tap for sound</button>`
   + `</div>`
   + `<div class="reel-side">`
   + `<button class="reel-icon${liked ? " liked" : ""}" data-ract="like" aria-label="Like this video">${RIC.heart.split("FILLCOLOR").join(liked ? "currentColor" : "none")}<small>${liked ? "Liked" : "Like"}</small></button>`
@@ -130,8 +165,8 @@ function setActiveReel(i) {
   cards.forEach((c, ci) => {
     const v = c.querySelector("video");
     if (!v) return;
-    if (ci === reelIndex) { try { v.muted = false; try { v.volume = 1; } catch (e2) {} const m0 = c.querySelector('[data-ract="mute"]'); const pr = v.play(); if (pr && pr.catch) pr.catch(() => { try { v.muted = true; const m = c.querySelector('[data-ract="mute"]'); v.play().catch(() => {}); } catch (e2) {} }); } catch (e) {} }
-    else { try { v.pause(); } catch (e) {} }
+    if (ci === reelIndex) { tryPlayReel(c, audioUnlocked); }
+    else { try { v.pause(); } catch (e) {} c.classList.remove("audible"); }
     updateReelPlayIcon(c);
   });
 }
@@ -141,21 +176,25 @@ function setupReelObserver() {
   const grid = $("#materialsGrid");
   if (!grid) return;
   reelIndex = 0;
-  if (typeof IntersectionObserver === "undefined") return;
+  if (typeof IntersectionObserver === "undefined") { autoplayVisibleReel(); return; }
   try {
     // Direct page scroll: observe against the viewport (root:null), not a nested box
     reelObs = new IntersectionObserver(entries => {
       for (const en of entries) {
-        if (en.isIntersecting && en.intersectionRatio >= 0.5) {
+        if (en.isIntersecting && en.intersectionRatio >= 0.4) {
           const i = Number(en.target.dataset.idx);
-          if (i !== reelIndex) setActiveReel(i);
+          const card = reelCards()[i];
+          const v = card && card.querySelector("video");
+          // Fix: also start playback when the first reel is already visible
+          // on load (i === reelIndex but still paused).
+          if (i !== reelIndex || (v && v.paused && !v.ended)) setActiveReel(i);
         }
       }
-    }, { root: null, rootMargin: "-10% 0px -10% 0px", threshold: [0.5] });
+    }, { root: null, rootMargin: "-10% 0px -10% 0px", threshold: [0.4, 0.6] });
     grid.querySelectorAll(".reel-card").forEach(c => reelObs.observe(c));
-    // Don't force-play the first reel while it may be below the fold;
-    // the observer will start it once the student scrolls it into view.
     reelCards().forEach(c => updateReelPlayIcon(c));
+    // Autoplay whichever reel is actually visible right now
+    setTimeout(autoplayVisibleReel, 120);
   } catch (e) {}
 }
 function scrollReel(d) {
@@ -175,15 +214,21 @@ $("#materialsGrid").addEventListener("click", e => {
   const l = lessons.find(x => x.id === id);
   const v = card.querySelector("video");
   if (!btn) {
-    if (v && e.target === v) { if (suppressTap) return; if (v.paused) { pauseAllReels(v); try { audioUnlocked = true; v.muted = false; const mb = card.querySelector('[data-ract="mute"]'); } catch (e2) {} v.play().catch(() => {}); } else { v.pause(); } updateReelPlayIcon(card); }
+    if (v && e.target === v) { if (suppressTap) return; if (v.paused) { pauseAllReels(v); audioUnlocked = true; tryPlayReel(card, true); } else { v.pause(); } updateReelPlayIcon(card); }
     return;
   }
   const act = btn.dataset.ract;
   if (act === "play") {
     reelIndex = Number(card.dataset.idx) || 0;
     if (!v) return;
-    if (v.paused) { pauseAllReels(v); try { audioUnlocked = true; v.muted = false; const mb2 = card.querySelector('[data-ract="mute"]'); } catch (e2) {} v.play().catch(() => {}); } else { v.pause(); }
+    if (v.paused) { pauseAllReels(v); audioUnlocked = true; tryPlayReel(card, true); } else { v.pause(); }
     updateReelPlayIcon(card);
+  } else if (act === "sound") {
+    if (!v) return;
+    audioUnlocked = true;
+    tryPlayReel(card, v.muted);
+    updateReelPlayIcon(card);
+    if (!v.muted) showToast("Sound on");
   } else if (act === "like") {
     if (reelLikes[id]) { delete reelLikes[id]; } else { reelLikes[id] = 1; }
     try { localStorage.setItem("vql_likes", JSON.stringify(reelLikes)); } catch (err) {}
@@ -251,7 +296,8 @@ $("#materialsGrid").addEventListener("ended", e => {
 /* pause reels when leaving to another view / lesson / quiz */
 document.addEventListener("click", e => {
   if (e.target.closest("[data-view],[data-lesson],[data-startquiz]")) { audioUnlocked = true; pauseAllReels(); }
-  if (e.target.closest('[data-view="materials"]')) setTimeout(() => { try { setActiveReel(reelIndex); } catch (err) {} }, 80);
+  // Pag pasok sa Learn Physics: i-autoplay kung aling reel ang kita (may tunog na, kasi may click = interaction)
+  if (e.target.closest('[data-view="materials"]')) setTimeout(() => { try { autoplayVisibleReel(); } catch (err) {} }, 350);
 });
 /* restore Skip/Cancel label after the quiz offer closes */
 ["modalConfirm", "modalCancel"].forEach(mid => {
