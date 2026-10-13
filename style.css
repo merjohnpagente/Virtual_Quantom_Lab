@@ -99,9 +99,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,.chip:focus-visible{out
 [data-theme="dark"] .step-num{color:#3a4f75}
 @media(max-width:720px){.steps-grid{grid-template-columns:1fr}.steps h2{font-size:26px}}
 
-/* ---------- Reels feed (Learning Materials) ---------- */
-.reels-feed{max-height:660px;overflow-y:auto;overflow-x:hidden;max-width:400px;margin-inline:auto;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch;scroll-snap-type:y proximity;display:flex;flex-direction:column;gap:14px;padding:6px;scrollbar-width:thin}
-.reel-card{position:relative;background:#000;color:#fff;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;border-radius:20px;overflow:hidden;height:600px;max-width:340px;width:100%;margin-inline:auto;scroll-snap-align:start;flex-shrink:0;box-shadow:0 12px 30px rgba(10,25,55,.20)}
+/* ---------- Reels feed (Learning Materials) — direct page scroll, no nested box ---------- */
+.reels-feed{max-width:400px;margin-inline:auto;display:flex;flex-direction:column;gap:22px;padding:6px 6px 30px;overflow:visible}
+.reel-card{position:relative;background:#000;color:#fff;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;border-radius:20px;overflow:hidden;height:600px;max-width:340px;width:100%;margin-inline:auto;flex-shrink:0;box-shadow:0 12px 30px rgba(10,25,55,.20);scroll-margin-top:84px}
 
 .reel-screen{position:absolute;inset:0;background:#000}
 .reel-screen video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
@@ -126,12 +126,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,.chip:focus-visible{out
 .reel-time{font-size:11px;font-weight:600;opacity:.8;margin-top:6px}
 /* ---------- Lesson video player (same card style) ---------- */
 .lesson-video{width:100%;max-height:420px;border-radius:12px;background:#000;margin:10px 0 4px}
-@media(max-width:720px){.reels-feed{max-height:82vh;max-height:82dvh;gap:10px;padding:0;max-width:none;margin:0 -16px}.reel-card{height:76vh;height:76dvh;min-height:500px;max-width:100%;width:calc(76vh * 9 / 16);width:calc(76dvh * 9 / 16);border-radius:14px}.reel-info{padding:36px 12px 12px}.reel-info h3{font-size:18px}.reel-info p{font-size:12.5px}.reel-formula{font-size:12px;margin-bottom:10px}.reel-quiz{min-height:46px;font-size:14px}.reel-side{right:6px}}
+@media(max-width:720px){.reels-feed{gap:16px;padding:0 0 24px;max-width:420px;margin-inline:auto;overflow:visible;max-height:none}.reel-card{height:76vh;height:76dvh;min-height:500px;max-width:100%;width:100%;border-radius:14px;scroll-margin-top:72px}.reel-info{padding:36px 12px 12px}.reel-info h3{font-size:18px}.reel-info p{font-size:12.5px}.reel-formula{font-size:12px;margin-bottom:10px}.reel-quiz{min-height:46px;font-size:14px}.reel-side{right:6px}}
 /* ---------- Clean materials look ---------- */
 #materialsView .page-heading{margin-bottom:16px}
-#materialsView .material-toolbar{margin-bottom:14px}
-#materialsView .chip-row{margin:0 0 14px}
-@media(max-width:720px){#materialsView{padding-top:20px;padding-bottom:40px}#materialsView .page-heading h1{font-size:26px}#materialsView .page-heading p{font-size:14px}}
+#materialsView .material-toolbar{margin-bottom:14px;position:sticky;top:64px;z-index:15;background:var(--surface,#fff);padding:10px 0}
+#materialsView .chip-row{margin:0 0 14px;position:sticky;top:118px;z-index:15;background:var(--surface,#fff);padding:6px 0}
+.reel-scrollcue{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:6;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:700;letter-spacing:.4px;padding:7px 14px;border-radius:999px;pointer-events:none;animation:cue-bounce 1.6s ease-in-out infinite;transition:opacity .3s}
+.reel-card.playing .reel-scrollcue{opacity:0}
+@keyframes cue-bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+@media(max-width:720px){#materialsView{padding-top:20px;padding-bottom:40px}#materialsView .page-heading h1{font-size:26px}#materialsView .page-heading p{font-size:14px}#materialsView .material-toolbar{top:62px}#materialsView .chip-row{position:static}}
 /* scrub time bubble while dragging */
 .reel-scrub-tip{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:8;background:rgba(0,0,0,.68);color:#fff;font-weight:800;font-size:17px;padding:10px 18px;border-radius:12px;pointer-events:none;display:none;white-space:nowrap}
 .reel-scrub-tip.show{display:block}

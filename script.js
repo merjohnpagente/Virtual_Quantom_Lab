@@ -96,6 +96,7 @@ function reelCardHTML(l, i, n) {
   + `<button class="btn btn-primary reel-quiz" data-ract="quiz">Take the Quiz ${icon.arrow}</button>`
   + `<div class="reel-time"><span data-rt>0:00 / 0:00</span></div>`
   + `</div>`
+  + (i < n - 1 ? `<div class="reel-scrollcue">Scroll ↓ for next video</div>` : ``)
   + `<div class="reel-progress"><span data-bar style="width:0%"></span></div>`
   + `</article>`;
 }
@@ -142,16 +143,19 @@ function setupReelObserver() {
   reelIndex = 0;
   if (typeof IntersectionObserver === "undefined") return;
   try {
+    // Direct page scroll: observe against the viewport (root:null), not a nested box
     reelObs = new IntersectionObserver(entries => {
       for (const en of entries) {
-        if (en.isIntersecting && en.intersectionRatio >= 0.55) {
+        if (en.isIntersecting && en.intersectionRatio >= 0.5) {
           const i = Number(en.target.dataset.idx);
           if (i !== reelIndex) setActiveReel(i);
         }
       }
-    }, { root: grid, threshold: [0.55] });
+    }, { root: null, rootMargin: "-10% 0px -10% 0px", threshold: [0.5] });
     grid.querySelectorAll(".reel-card").forEach(c => reelObs.observe(c));
-    setActiveReel(0);
+    // Don't force-play the first reel while it may be below the fold;
+    // the observer will start it once the student scrolls it into view.
+    reelCards().forEach(c => updateReelPlayIcon(c));
   } catch (e) {}
 }
 function scrollReel(d) {
@@ -159,7 +163,7 @@ function scrollReel(d) {
   if (!cards.length) return;
   const n = (reelIndex + d + cards.length) % cards.length;
   const el = cards[n];
-  if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "center" });
   setActiveReel(n);
 }
 /* reel feed interactions */
